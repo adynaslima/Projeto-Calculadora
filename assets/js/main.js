@@ -11,8 +11,17 @@ class Calculator {
 
     //Adicionando dígito na tela da calculadora 
     addDigit(digit) {
+        //Verificando se a operação atual já tem um ponto
+        if(digit==="." && this.currentOperationText.innerText.includes(".")) {
+            return;
+        }
         this.currentOperation = digit;
         this.updateScreen();
+    }
+
+    //Processando todas as operações calculadora
+    processOperation(operation) {
+        console.log(operation);
     }
 
     //Alterando valores da tela da calculadora
@@ -30,7 +39,7 @@ buttons.forEach((btn) => {
         if (+value >= 0 || value === ".") {
             calc.addDigit(value);
         } else {
-            console.log("op" + value);
+            calc.processOperation(value);
         }
     })
 })
