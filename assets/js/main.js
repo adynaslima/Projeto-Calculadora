@@ -19,7 +19,22 @@ class Calculator {
         this.updateScreen();
     }
 
+    //Processando todas as operações calculadora
+    processOperation(operation) {
+        //Obtendo valor atual e anterior
+        let operationValue;
+        const previous = +this.previousOperationText.innerText;
+        const current = +this.currentOperationText.innerText;
 
+        switch(operation) {
+            case "+":
+                operationValue = previous + current;
+                this.updateScreen(operationValue, operation, current, previous)
+                break;
+            default:
+                return;
+        }
+    }
 
     //Alterando valores da tela da calculadora
     updateScreen(
