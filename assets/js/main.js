@@ -19,14 +19,25 @@ class Calculator {
         this.updateScreen();
     }
 
-    //Processando todas as operações calculadora
-    processOperation(operation) {
-        console.log(operation);
-    }
+
 
     //Alterando valores da tela da calculadora
-    updateScreen() {
+    updateScreen(
+        operationValue = null,
+        operation = null, 
+        current = null, 
+        previous = null
+    ) {
+
+        if(operationValue === null) {
         this.currentOperationText.innerText += this.currentOperation; 
+        } else {
+            //Verificando se zero é o valor, se for apenas adicione o valor atual
+            if (previous === 0) {
+                operationValue = current;
+            }
+            //Adicionando valor atual ao anterior
+        }
     }
 }
 
@@ -40,6 +51,6 @@ buttons.forEach((btn) => {
             calc.addDigit(value);
         } else {
             calc.processOperation(value);
-        }
+        } 
     })
 })
