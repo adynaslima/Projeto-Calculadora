@@ -56,10 +56,13 @@ class Calculator {
                 this.processDelOperator()
                 break;
             case "CE":
-                this.processClearCurrentOperator()
+                this.processClearCurrentOperation()
                 break;
             case "C":
-                this.processClearOperator()
+                this.processClearOperation()
+                break;
+            case "=":
+                this.processEqualsOperator()
                 break;
             default:
                 return;
@@ -104,14 +107,22 @@ class Calculator {
     }
 
     //Limpando a operação atual
-    processClearCurrentOperator() {
+    processClearCurrentOperation() {
         this.currentOperationText.innerText = "";
     }
 
     //Limpando todas as operações
-    processClearOperator() {
+    processClearOperation() {
         this.currentOperationText.innerText = "";
         this.previousOperationText.innerText = "";
+    }
+
+    //Processando uma operação
+    processEqualsOperator() {
+
+        const operation = previousOperationText.innerText.split(" ")[1];
+
+        this.processOperation(operation);
     }
 }
 
