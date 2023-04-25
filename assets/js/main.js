@@ -52,6 +52,9 @@ class Calculator {
                 operationValue = previous * current;
                 this.updateScreen(operationValue, operation, current, previous)
                 break;
+            case "DEL":
+                this.processDelOperator()
+                break;
             default:
                 return;
         }
@@ -87,6 +90,11 @@ class Calculator {
         }
 
         this.previousOperationText.innerText = this.previousOperationText.innerText.slice(0, -1) + operation;
+    }
+
+    //Excluindo o último digito
+    processDelOperator() {
+        this.currentOperationText.innerText = this.currentOperationText.innerText.slice(0, -1);
     }
 }
 
