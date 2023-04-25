@@ -52,6 +52,8 @@ class Calculator {
                 operationValue = current;
             }
             //Adicionando valor atual ao anterior
+            this.previousOperationText.innerText = `${operationValue} ${operation}`
+            this.currentOperationText = "";
         }
     }
 }
